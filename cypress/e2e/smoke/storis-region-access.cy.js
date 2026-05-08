@@ -1,6 +1,10 @@
 const storisHomePage = require("../../pages/storisHomePage");
 
 describe("STORIS regional access smoke", () => {
+  // Flow:
+  // 1) Read expected region from env.
+  // 2) Check homepage status against allowed/blocked rules.
+  // 3) Visit UI and validate block page or main page.
   it("handles allowed and blocked regional traffic explicitly", () => {
     const expectedRegion = Cypress.env("expectedRegion");
 
@@ -11,12 +15,12 @@ describe("STORIS regional access smoke", () => {
       if (expectedRegion === "blocked") {
         expect(
           [403, 503],
-          `error: user ip region is blocked. expected blocked status [403, 503], got ${response.status}`
+          `info: valid region was received. expected blocked status [403, 503], got ${response.status}`
         ).to.include(response.status);
       } else {
         expect(
           [200, 301, 302],
-          `error: expected allowed region access, but received ${response.status}. this usually means user ip region is blocked`
+          `info: valid region was received. expected allowed status [200, 301, 302], got ${response.status}`
         ).to.include(response.status);
       }
     });
@@ -24,13 +28,13 @@ describe("STORIS regional access smoke", () => {
     storisHomePage.visitRoot();
 
     if (expectedRegion === "blocked") {
-      cy.log("error: user ip region is blocked");
+      cy.log("info: valid region was received");
       storisHomePage.assertCloudflareBlockPage();
-      cy.log("all tests passed, ip region is valid");
+      cy.log("info: valid region was received");
       return;
     }
 
     storisHomePage.assertMainPageLoaded();
-    cy.log("all tests passed, ip region is valid");
+    cy.log("info: valid region was received");
   });
 });

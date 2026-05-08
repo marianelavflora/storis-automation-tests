@@ -1,0 +1,28 @@
+{
+  "name": "storis-automation-tests",
+  "version": "1.0.0",
+  "description": "This projec is to briefly see automation testing with Javascript, e2e tests with Cypress and maybe REST API testing with Postman in order to try out the technologies Storis provider of software solutions and professional services for home furnishings uses.",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "test": "npm run cy:run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marianelavflora/storis-automation-tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/marianelavflora/storis-automation-tests/issues"
+  },
+  "homepage": "https://github.com/marianelavflora/storis-automation-tests#readme",
+  "devDependencies": {
+    "cypress": "^15.14.2",
+    "dotenv": "^17.4.2"
+  }
+}
