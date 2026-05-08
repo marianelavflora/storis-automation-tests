@@ -1,6 +1,15 @@
 # storis-automation-tests
 
-Production-oriented Cypress (JavaScript) starter suite for live STORIS website validation.
+Learning-oriented Cypress (JavaScript) starter suite for live STORIS website validation.
+
+## Achievements
+Learned how to install and deploy Cypress
+Learned how to create E2E tests with Javascript and Cypress 
+Discovered a BUG or improvement in Storis webpage: error message text when email input is wrong isn't easily visible by the user because red gets lost in orange background
+<img width="1182" height="220" alt="image" src="https://github.com/user-attachments/assets/3012cdd2-a401-4395-8fdc-fd184f0fad2f" />
+Learned how to integrate Github Actions 
+
+
 
 ## Scope (initial phase)
 
