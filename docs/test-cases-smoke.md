@@ -21,7 +21,7 @@ This document describes the **smoke** test cases implemented in this repository 
 3. When running Cypress, keep an eye on the Cypress logs/messages:
    - `info: valid region was received`
 
----
+------------------------------------------------------------------------------------
 
 ## SMK-001 — Regional access: allowed region
 
@@ -30,6 +30,7 @@ This document describes the **smoke** test cases implemented in this repository 
 
 ### Steps
 
+PREREQUISITE:  set your PC VPN region to  USA, mexico or canada 
 1. Open `BASE_URL` (homepage).
 2. Perform a homepage request and validate the HTTP status is one of:
    - `200`, `301`, `302`
@@ -41,7 +42,7 @@ This document describes the **smoke** test cases implemented in this repository 
 - Homepage UI is loaded (main page assertion passes).
 - Cypress logs include: `info: valid region was received`.
 
----
+------------------------------------------------------------------------------
 
 ## SMK-002 — Regional access: blocked region
 
@@ -50,6 +51,8 @@ This document describes the **smoke** test cases implemented in this repository 
 
 ### Steps
 
+
+PREREQUISITE:  set your PC VPN region to ANY location different from mexco, canada or united state
 1. Open `BASE_URL` (homepage).
 2. Perform a homepage request and validate the HTTP status is one of:
    - `403`, `503`
@@ -62,7 +65,7 @@ This document describes the **smoke** test cases implemented in this repository 
 - When this test fails due to geoblocking mismatch, Cypress error should explain region mismatch.
 - When this test passes, Cypress logs include: `info: valid region was received`.
 
----
+-------------------------------------------------------------------------------
 
 ## SMK-003 — Industry expert form: invalid email input + submit
 
@@ -79,7 +82,8 @@ This document describes the **smoke** test cases implemented in this repository 
 
 ### Expected Result
 
-- The email input accepts the typed value (`wrongEmail899798`).
-- The submit button click triggers the form submission flow.
-- (Recommended for future improvement) After submit, the page should show a validation message indicating the email format is invalid.
+- The email input rejects the invalid information and below the input box the message "The email address entered is invalid, please check the formatting (e.g. email@domain.com)." on small red font 
+
+
+
 
